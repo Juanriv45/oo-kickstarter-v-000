@@ -4,7 +4,10 @@ class Project
     @title = title
     @backers = []
   end
-  def add_backer(name)
-    @backers << name
+  def add_backer(backer)
+    @backers << backer
+    if !backer.backed_projects.include(self) then
+      backer.backed_projects << self
+    end
   end
 end
